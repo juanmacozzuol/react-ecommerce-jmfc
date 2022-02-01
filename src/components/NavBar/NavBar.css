@@ -1,0 +1,29 @@
+.logo{
+
+height: 50px;
+width: 50px;
+float: left;
+display :inline;
+
+}
+
+.nav{
+
+    background-color: red;
+    height: 80px;
+    
+}
+
+.link{
+
+    text-decoration: none;
+    color: black;
+
+}
+
+ul li{
+display: inline;
+padding: 10px;
+
+}
+
