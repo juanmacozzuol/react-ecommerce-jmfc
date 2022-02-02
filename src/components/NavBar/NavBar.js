@@ -1,13 +1,14 @@
 import './NavBar.css'
+import {GiMeepleKing} from 'react-icons/gi'
 
 const NavBar =() =>{
     return(
       <nav >
         <div class="nav" >
             <div >
-            <img class="logo" src={'./images/logo192.png'}></img>
+            <GiMeepleKing class="logo" />
             </div>
-            <h1>The Boardgame Store</h1>
+            <h1>The Meeple King</h1>
             <ul>
             <li> <a class="link" href="#twoplayergames">Two Player Games</a></li>
             <li><a class="link" href="#strategygames">Strategy Games</a></li>
