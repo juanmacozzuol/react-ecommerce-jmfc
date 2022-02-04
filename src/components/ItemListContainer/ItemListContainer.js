@@ -1,12 +1,12 @@
 import "./ItemListContainer.css";
 
 
-const ItemListContainer =()=>{
+const ItemListContainer =({title})=>{
 
 return(
 
 
-<h2 class="itemlist">Hello World</h2>
+<h2 class="itemlist">{title}</h2>
 )
 
 
