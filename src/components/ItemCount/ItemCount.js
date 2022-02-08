@@ -28,7 +28,7 @@ console.log();
         <p style={{display:"inline"}}>{count}</p>
         <button  onClick={increment}>+</button>
         <div>
-        <button onClick={onAdd}>Agregar al carrito</button>
+        <button onClick={()=>onAdd(count)}>Agregar al carrito</button>
         </div>
         </div>
     )

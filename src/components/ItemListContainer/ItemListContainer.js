@@ -7,8 +7,8 @@ import ItemCount from "../ItemCount/ItemCount";
 
 const ItemListContainer =({title})=>{
 
-    const addItems =()=>{
-       console.log("items agregados");
+    const addItems =(valor)=>{
+       console.log(valor +"items agregados");
     }
 
 return(
