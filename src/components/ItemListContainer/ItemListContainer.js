@@ -11,7 +11,7 @@ const ItemListContainer =({title})=>{
        console.log(valor +"items agregados");
     }
 
-return(
+return( 
 
 <div>
 <h2 class="itemlist">{title}</h2>
