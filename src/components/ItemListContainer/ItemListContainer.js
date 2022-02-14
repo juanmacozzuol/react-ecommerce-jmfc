@@ -44,7 +44,7 @@ getProducts().then((products)=>{
 return( 
 
 <div>
-<h2 class="itemlist">{title}</h2>
+<h2 className="itemlist">{title}</h2>
 <ItemCount stock="10" initial="0" onAdd={addItems} />
 <ItemList productos={products}/>
 

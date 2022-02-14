@@ -7,9 +7,9 @@ const NavBar =() =>{
 
     return(
       <nav >
-        <div class="nav" >
+        <div className="nav" >
             <div >
-            <GiMeepleKing class="logo" />
+            <GiMeepleKing className="logo" />
             <CartWidget/>
        
             </div>

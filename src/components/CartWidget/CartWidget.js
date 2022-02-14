@@ -5,9 +5,9 @@ const CartWidget =()=>
 
 return(
 
-<div class="cartwidget">
+<div className="cartwidget">
 
-<button class='cart'><FiShoppingCart/>2</button>
+<button className='cart'><FiShoppingCart/>2</button>
 
 
 </div>

@@ -6,7 +6,7 @@ const Button =({label, backgroundColor, colorText,handleClick}) =>{
 
 return( 
 
-    <button class='boton' style={{backgroundColor, color:colorText}} onclick={handleClick}>{label}</button>
+    <button className='boton' style={{backgroundColor, color:colorText}} onClick={handleClick}>{label}</button>
 )
 
 }
