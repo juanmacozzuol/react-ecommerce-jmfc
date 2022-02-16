@@ -13,16 +13,16 @@ getProduct().then((product)=>{
     setProduct(product)
    
 
-})
+} )
 
 
-},[])
+},[])   
 
 
 return(
 
-    <ItemDetail producto={product}/>
-)
+    <ItemDetail {...product}/>
+)   
     
 }
 
