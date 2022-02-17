@@ -6,7 +6,7 @@ const ItemList =({productos})=>{
 
     return(
 
-        <ul>
+      <div>
     
         {productos.map( product => {
                 
@@ -14,8 +14,8 @@ const ItemList =({productos})=>{
     
             }
     
-                    
-        </ul>
+    </div>          
+       
         
         )
          
