@@ -3,6 +3,7 @@ import "./ItemListContainer.css";
 import ItemCount from "../ItemCount/ItemCount";
 import ItemList from "../ItemList/ItemList"
 import { getProducts } from "../Mock/Mock";
+import{ useParams} from 'react-router-dom'
 
 
 
@@ -12,27 +13,29 @@ import { getProducts } from "../Mock/Mock";
 const ItemListContainer =({title})=>{
 
     const[products,setProducts]=useState([])
+    const params=useParams();
     const addItems =(valor)=>{
        console.log(valor +"items agregados");
     }
 
 useEffect(()=>{
-getProducts().then((products)=>{
+getProducts(params.categoryId).then((products)=>{
+
 
     setProducts(products)
 
 })
 
 
-},[])
+},[params.categoryId])
 
 
 return( 
 
 <div>
-<h2 className="itemlist">{title}</h2>
+<h2 >{title}</h2>
 <ItemCount stock="10" initial="0" onAdd={addItems} />
-<ItemList productos={products}/>
+<ItemList productos={products} />
 
 
 </div>

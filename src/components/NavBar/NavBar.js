@@ -1,24 +1,28 @@
 import './NavBar.css';
 import {GiMeepleKing} from 'react-icons/gi';
-import Button from '../Button/Button';
 import CartWidget from '../CartWidget/CartWidget';
+import {NavLink, Link} from 'react-router-dom'
 
 const NavBar =() =>{
+
+
+
+
 
     return(
       <nav >
         <div className="nav" >
             <div >
-            <GiMeepleKing className="logo" />
+            <Link to='/'><GiMeepleKing className="logo" /></Link>
             <CartWidget/>
        
             </div>
             <h1>The Meeple King</h1>
 
             <ul>
-            <li> <Button  label="Two Player Games" backgroundColor='#800020' colorText='white' >Two Player Games</Button></li>
-            <li><Button label="Strategy Games" backgroundColor='#800020' colorText='white'>Strategy Games</Button></li>
-            <li><Button label="Gateway Games" backgroundColor='#800020' colorText='white'>Gateway Games</Button></li>
+            <li> <NavLink to={'/category/twoplayergames'}   className={({isActive})=> isActive ? 'selectedlink' : 'link'}   >Two Player Games</NavLink></li>
+            <li><NavLink to={'/category/strategygames'} className={({isActive})=> isActive ? 'selectedlink' : 'link'} >Strategy Games</NavLink></li>
+            <li><NavLink to={'/category/gatewaygames'} className={({isActive})=> isActive ? 'selectedlink' : 'link'} >Gateway Games</NavLink></li>
             </ul>
 
         </div>        
