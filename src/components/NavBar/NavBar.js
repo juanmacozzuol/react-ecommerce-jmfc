@@ -9,7 +9,7 @@ const NavBar =() =>{
 
 
 
-    return(
+  return(
       <nav >
         <div className="nav" >
             <div >
@@ -20,9 +20,9 @@ const NavBar =() =>{
             <h1>The Meeple King</h1>
 
             <ul>
-            <li> <NavLink to={'/category/twoplayergames'}   className={({isActive})=> isActive ? 'selectedlink' : 'link'}   >Two Player Games</NavLink></li>
-            <li><NavLink to={'/category/strategygames'} className={({isActive})=> isActive ? 'selectedlink' : 'link'} >Strategy Games</NavLink></li>
-            <li><NavLink to={'/category/gatewaygames'} className={({isActive})=> isActive ? 'selectedlink' : 'link'} >Gateway Games</NavLink></li>
+              <li> <NavLink to={'/category/twoplayergames'}   className={({isActive})=> isActive ? 'selectedlink' : 'link'}   >Two Player Games</NavLink></li>
+              <li><NavLink to={'/category/strategygames'} className={({isActive})=> isActive ? 'selectedlink' : 'link'} >Strategy Games</NavLink></li>
+              <li><NavLink to={'/category/gatewaygames'} className={({isActive})=> isActive ? 'selectedlink' : 'link'} >Gateway Games</NavLink></li>
             </ul>
 
         </div>        
@@ -30,7 +30,7 @@ const NavBar =() =>{
         
         
       </nav>
-    )
-    }
+  )
+}
 
-    export default NavBar;
+export default NavBar;

@@ -9,15 +9,8 @@ const ItemDetail = (producto) =>{
 
 return(
 
-<div>
-    
-
-    {/* <img alt={producto.name} style={{height:200,width:170}} src={producto.img}></img>
-    <p>{producto.name}</p>
-    <p>price:{producto.price}</p>
-    <p>stock:{producto.stock}</p>
-    <p>description:{producto.description}</p> */}
-    <Col className='col-md-4 mb-4' >
+    <div>
+        <Col className='col-md-4 mb-4' >
             <Card className='border-warning text-start'>
                 <CardHeader className='bg-warning text-center'>
                     <CardTitle tag="h5">{producto.name}</CardTitle>
@@ -30,14 +23,11 @@ return(
 
                     <p className='lead'>{producto.description}</p>
 
-                    <ItemCount onAdd={addItems} stock={producto.stock} initial={0}/>
+                    <ItemCount onAdd={addItems} stock={producto.stock} initial={1}/>
                 </CardBody>
-            </Card>
+        </Card>
         </Col>
-
-
-
-</div>
+    </div>
 )
 
 

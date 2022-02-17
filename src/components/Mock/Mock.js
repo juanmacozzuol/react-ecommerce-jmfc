@@ -13,36 +13,28 @@ export const getProducts =(category) =>{
         
         if(category!=null)
         {
-     const prod=products.filter(p => p.category ===category)
-     setTimeout(()=>{
-        resolve(prod)
-
-    },2000)
-
-    }
- else{
-
-    setTimeout(()=>{
-        resolve(products)
-
-    },2000)
-    
- }
-
-
-    
-        })
-    
-    }
-
-    export const getProduct =(id) =>{
-        return new Promise((resolve,reject)=>{
-            const prod=products.find(p => p.id ===parseInt(id))
+            const prod=products.filter(p => p.category ===category)
             setTimeout(()=>{
-                resolve(prod)
-        
+                resolve(prod)  
             },2000)
-        
-            })
-        
         }
+        else{
+            setTimeout(()=>{
+                resolve(products)
+            },2000)
+        }
+
+
+    
+    })
+}
+
+export const getProduct =(id) =>{
+
+    return new Promise((resolve,reject)=>{
+        const prod=products.find(p => p.id ===parseInt(id))
+        setTimeout(()=>{
+            resolve(prod)
+        },2000)
+    })        
+}
