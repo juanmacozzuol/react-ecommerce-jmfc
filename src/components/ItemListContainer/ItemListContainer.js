@@ -10,7 +10,10 @@ const ItemListContainer =({title})=>{
 
     const[products,setProducts]=useState([])
     const params=useParams();
-
+    const addItems =(valor)=>{
+        console.log(valor +"items agregados");
+     }
+ 
 
     useEffect(()=>{
         getProducts(params.categoryId).then((products)=>{

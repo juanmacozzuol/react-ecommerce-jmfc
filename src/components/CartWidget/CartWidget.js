@@ -3,16 +3,13 @@ import './CartWidget.css';
 const CartWidget =()=>
 {
 
-return(
+    return(
 
-<div className="cartwidget">
+    <div className="cartwidget">
+        <button className='cart'><FiShoppingCart/>2</button>
+    </div>
 
-<button className='cart'><FiShoppingCart/>2</button>
-
-
-</div>
-
-)
+    )
 
 }
 
