@@ -10,9 +10,7 @@ const ItemListContainer =({title})=>{
 
     const[products,setProducts]=useState([])
     const params=useParams();
-    const addItems =(valor)=>{
-        console.log(valor +"items agregados");
-     }
+ 
  
 
     useEffect(()=>{
@@ -27,7 +25,7 @@ const ItemListContainer =({title})=>{
 
         <div>
             <h2 >{title}</h2>
-            <ItemCount stock="10" initial="0" onAdd={addItems} />
+            
             <ItemList productos={products} />
         </div>
     )

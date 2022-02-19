@@ -19,19 +19,21 @@ color:black;
 .link{
 
     text-decoration: none;
-    color: black;
+    color: white;
     border-radius: 10px;
     background-color: rgb(68, 39, 173);
     padding: 3px;
+    margin:10px;
 }
 
-.selectedlink{
+.selectedLink{
 
     text-decoration: none;
     color: white;
     border-radius: 10px;
     background-color: rgb(43, 17, 66);
     padding: 3px;
+    margin:10px;
 }
 
 

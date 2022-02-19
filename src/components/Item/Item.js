@@ -10,7 +10,7 @@ const Item = ({name, img,id})=>{
 
             
 
-            <Col className='col-md-4 mb-4' >
+            <Col className='col-md-4 mb-4' style={{margin:10}} >
                 <Card className='border-warning text-start'>
                     <CardHeader className='bg-warning text-center'>
                         <CardTitle tag="h5">{name}</CardTitle>

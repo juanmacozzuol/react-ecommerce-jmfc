@@ -1,7 +1,7 @@
 
 import { Col, Card, CardBody, CardTitle, CardText, CardImg, CardSubtitle, Button, CardHeader } from 'reactstrap';
 import ItemCount from '../ItemCount/ItemCount';
-const ItemDetail = (producto) =>{
+const ItemDetail = ({producto}) =>{
 
     const addItems =(valor)=>{
         console.log(valor +"items agregados");
