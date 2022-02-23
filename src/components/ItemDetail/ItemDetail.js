@@ -1,10 +1,14 @@
 
 import { Col, Card, CardBody, CardTitle, CardText, CardImg, CardSubtitle, Button, CardHeader } from 'reactstrap';
 import ItemCount from '../ItemCount/ItemCount';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 const ItemDetail = ({producto}) =>{
-
+const [bought,setBought] = useState(0);
+console.log(bought)
     const addItems =(valor)=>{
         console.log(valor +"items agregados");
+        setBought(valor);
      }
 
 return(
@@ -23,7 +27,8 @@ return(
 
                     <p className='lead'>{producto.description}</p>
 
-                    <ItemCount onAdd={addItems} stock={producto.stock} initial={1}/>
+                    {bought==0 ?<ItemCount onAdd={addItems} stock={producto.stock} initial={1}/> :<Link to='/cart'>Ver Carrito</Link>}
+
                 </CardBody>
         </Card>
         </Col>
