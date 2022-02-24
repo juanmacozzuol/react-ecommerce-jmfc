@@ -26,7 +26,7 @@ const ItemDetailContainer = () =>{
     return(
         
         <div>
-        {loading ? <Spinner/>: <ItemDetail producto={product}/>}
+        {loading ? <Spinner/>: <ItemDetail {...product}/>}
         </div>
         
         ) 
