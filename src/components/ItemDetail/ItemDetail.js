@@ -8,7 +8,7 @@ import Context from '../../context/CartContext';
 
 const ItemDetail = ({name,img,stock,description,price, id}) =>{
 const [bought,setBought] = useState(0);
- const {addProducts} = useContext(Context);
+ const {addProducts, removeItem,clearCart} = useContext(Context);
 
 
 

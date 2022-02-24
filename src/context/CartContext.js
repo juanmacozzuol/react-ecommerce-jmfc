@@ -20,10 +20,16 @@ export const CartContextProvider =({children})=>{
         if(inCart(obj.id)){
 
           const duplicate =cart.map(p=>{
-            if(p.id==obj.id)  {
+            if(p.id===obj.id)  {
             p.valor+=obj.valor
             }
+        
+          
+            return p;
+
             })
+            setCart(duplicate)
+           
         }
          
         else
@@ -39,7 +45,7 @@ export const CartContextProvider =({children})=>{
 
     const removeItem=(id)=>{
 
-        const newCart = cart.filter (p =>p.id!=id)
+        const newCart = cart.filter (p =>p.id!==id)
 
         setCart(newCart);
 
@@ -62,7 +68,7 @@ const inCart =(id)=>{
 }
     return(
 
-        <Context.Provider value={{addProducts}}>
+        <Context.Provider value={{addProducts,removeItem, clearCart}}>
 
             {children}
 
