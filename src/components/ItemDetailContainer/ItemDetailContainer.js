@@ -1,25 +1,30 @@
 import { useEffect,useState} from "react";
 import ItemDetail from '../ItemDetail/ItemDetail'
-import { getProduct } from '../Mock/Mock'
 import{ useParams} from 'react-router-dom'
 import { Spinner } from "reactstrap";
-
+import {getDoc, doc} from 'firebase/firestore'
+import { firestoreDb } from "../../services/firebase/firebase";
 const ItemDetailContainer = () =>{
 
     const[product,setProduct]=useState()
     const params=useParams();
     const [loading,setLoading]=useState(true)
+   
     useEffect(()=>{
-        getProduct(params.productId).then((product)=>{
+
+        const docRef=doc(firestoreDb,'products',params.productId)
+
+        getDoc(docRef).then(response =>{
+
+            const product ={id:response.id,...response.data()}
             setProduct(product)
-        } ).catch(err =>{
-            console.log(err);
+
+        }).finally(
+            setLoading(false)
+
+        )
 
 
-        }).finally(()=>{
-            setLoading(false);
-
-        })
     },[params.productId])   
 
 

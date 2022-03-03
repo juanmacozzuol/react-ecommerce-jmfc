@@ -3,19 +3,26 @@ import {GiMeepleKing} from 'react-icons/gi';
 import CartWidget from '../CartWidget/CartWidget';
 import {NavLink, Link} from 'react-router-dom'
 import { useEffect,useState } from 'react'
-import { getCategories } from '../Mock/Mock';
+import{getDocs,collection} from 'firebase/firestore'
+import { firestoreDb } from '../../services/firebase/firebase';
 
 const NavBar =() =>{
 
-
   const [categories, setCategories] = useState([])
   useEffect(() => {
-    getCategories().then(categories => {
+
+    getDocs(collection(firestoreDb,'categories')).then(response =>{
+
+      const categories =response.docs.map(cat =>{
+
+        return {id:cat.id,...cat.data()}
+
+      })
       setCategories(categories)
+
     })
+
   }, [])
-
-
 
   return(
       <nav >
@@ -36,5 +43,4 @@ const NavBar =() =>{
       </nav>
   )
 }
-
 export default NavBar;

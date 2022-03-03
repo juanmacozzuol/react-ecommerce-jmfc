@@ -2,7 +2,7 @@
 
 
 const products =[
-    {id:6, name:'7 Wonders Duel',price:22500,img:'https://cf.geekdo-images.com/WzNs1mA_o22ZWTR8fkLP2g__imagepagezoom/img/ADp01mqJWKzTCWZ6VjXhO9d2mnA=/fit-in/1200x900/filters:no_upscale():strip_icc()/pic3376065.jpg',stock:10,description:'A two players implementation of 7 Wonders', category:'twoplayergames'},
+    {id:6, name:'7 Wonders Duel',price:11500,img:'https://cf.geekdo-images.com/WzNs1mA_o22ZWTR8fkLP2g__imagepagezoom/img/ADp01mqJWKzTCWZ6VjXhO9d2mnA=/fit-in/1200x900/filters:no_upscale():strip_icc()/pic3376065.jpg',stock:10,description:'A two players implementation of 7 Wonders', category:'twoplayergames'},
     {id:3, name:'A Feast For Odin',price:22500,img:'https://cf.geekdo-images.com/s9oGMCo1fcfV4Dk3EnqLZw__opengraph/img/-lK5MWEusIFTLH7BaYPRG_DvsME=/fit-in/1200x630/filters:strip_icc()/pic3146943.png',stock:10,description:'Euro Game', category:'strategygames'},
     {id:1, name:'Carcassonne',price:14500,img:"https://cf.geekdo-images.com/okM0dq_bEXnbyQTOvHfwRA__imagepage/img/axGbn7f0x6UUb07DmzX9hg5TwIo=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6544250.png",stock:50,description:'Classic Tile-laying game', category:'gatewaygames'},
     {id:5, name:'Five Tribes',price:22500,img:'https://cf.geekdo-images.com/dmo-WD6HZHVUPrbVHunaTw__imagepagezoom/img/L_dmHftyM5kOnvxYQbejm1_I0Uo=/fit-in/1200x900/filters:no_upscale():strip_icc()/pic2055255.jpg',stock:10,description:'Mancala styled Euro Game', category:'strategygames'},
@@ -44,6 +44,7 @@ export const getProduct =(id) =>{
     return new Promise((resolve,reject)=>{
         const prod=products.find(p => p.id ===parseInt(id))
         setTimeout(()=>{
+            console.log(prod)
             resolve(prod)
         },500)
     })        

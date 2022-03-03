@@ -7,7 +7,7 @@ export const CartContextProvider =({children})=>{
     const [cart,setCart]=useState([]);
 
     useEffect(()=>{
-        console.log(cart)
+     
     },[cart])  
 
     const addProducts=(productToAdd,valor) =>{
@@ -19,16 +19,14 @@ export const CartContextProvider =({children})=>{
 
         if(inCart(obj.id)){
 
-          const duplicate =cart.map(p=>{
+          cart.map(p=>{
             if(p.id===obj.id)  {
             p.valor+=obj.valor
             }
-        
-          
-            return p;
 
+            return(p)
             })
-            setCart(duplicate)
+           
            
         }
          
@@ -59,16 +57,43 @@ export const CartContextProvider =({children})=>{
 
     }
     
-const inCart =(id)=>{
+    const inCart =(id)=>{
 
 
-    return cart.some(p=>p.id===id)
+        return cart.some(p=>p.id===id)
 
 
-}
+    }
+
+    const getQuantity=() =>{
+        let totalQ = 0
+        cart.forEach(item =>{
+    
+         totalQ = totalQ + item.valor
+     
+       
+        })
+        
+        return(totalQ)
+    }
+    
+    const getPrice=() =>{
+        let total = 0
+        cart.forEach(item =>{
+    
+         total = total + (item.price*item.valor)
+     
+       
+        })
+        
+        return(total)
+    }
+
+
+
     return(
 
-        <Context.Provider value={{addProducts,removeItem, clearCart}}>
+        <Context.Provider value={{addProducts,removeItem, clearCart,getQuantity, cart,getPrice}}>
 
             {children}
 

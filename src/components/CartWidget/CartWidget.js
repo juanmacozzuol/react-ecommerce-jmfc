@@ -1,12 +1,18 @@
 import {FiShoppingCart} from 'react-icons/fi';
 import './CartWidget.css';
+import Context from '../../context/CartContext';
+import { useContext } from 'react';
+
+
 const CartWidget =()=>
 {
+    const {getQuantity} = useContext(Context);
 
     return(
 
     <div className="cartwidget">
-        <button className='cart'><FiShoppingCart/>2</button>
+
+      {getQuantity()!==0 && <button className='cart'><FiShoppingCart/>{getQuantity()}</button>}
     </div>
 
     )
@@ -15,3 +21,5 @@ const CartWidget =()=>
 
 
 export default CartWidget
+
+

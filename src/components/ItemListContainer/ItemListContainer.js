@@ -1,10 +1,9 @@
 import { useEffect,useState } from "react";
 import "./ItemListContainer.css";
-import ItemCount from "../ItemCount/ItemCount";
 import ItemList from "../ItemList/ItemList"
-import { getProducts } from "../Mock/Mock";
 import{ useParams} from 'react-router-dom'
-
+import {getDocs,collection, query,where} from 'firebase/firestore'
+import { firestoreDb } from "../../services/firebase/firebase";
 
 const ItemListContainer =({title})=>{
 
@@ -14,11 +13,21 @@ const ItemListContainer =({title})=>{
  
 
     useEffect(()=>{
-        getProducts(params.categoryId).then((products)=>{
+        const collectionRef= params.categoryId ? 
+        query(collection(firestoreDb,'products'),where('category','==',params.categoryId)):
+        collection(firestoreDb,'products')
+  
+        getDocs(collectionRef).then(querySnapshot =>{
+            const products=querySnapshot.docs.map(doc=>{
+
+               
+                return{id:doc.id,...doc.data()}
+            })
 
             setProducts(products)
 
         })
+
     },[params.categoryId])
 
     return( 
