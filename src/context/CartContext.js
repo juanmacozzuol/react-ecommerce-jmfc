@@ -74,7 +74,7 @@ export const CartContextProvider =({children})=>{
        
         })
         
-        return(totalQ)
+        return(totalQ)  
     }
     
     const getPrice=() =>{
