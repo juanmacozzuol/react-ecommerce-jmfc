@@ -1,24 +1,24 @@
 
 import { useContext } from "react"
 import Context from '../../context/CartContext';
-import { Col, Card, CardBody, CardTitle, CardImg, CardSubtitle, CardHeader} from 'reactstrap';
+import { Col, Card, CardBody, CardTitle, CardImg, CardSubtitle, CardHeader, Row} from 'reactstrap';
 import {Link} from 'react-router-dom'
 
 
 
 const Cart =()=>{
 
-const {cart, getPrice,removeItem} = useContext(Context)
+const {cart, getPrice,removeItem,clearCart} = useContext(Context)
 
     return(   
         cart.length===0?<div><p>Carrito Vacío</p><Link to='/'>Go Home</Link></div>:
         <div>
            
                 {cart.map( product => {
-                    console.log(product.id)
+                   
                     return(    
 
-                        <Col key={product.id} className='col-md-4 mb-4' >
+                        <Row  key={product.id} className='col-md-4 mb-4' >
                             <Card className='border-warning text-start'>
                                 <CardHeader className='bg-warning text-center'>
                                     <CardTitle tag="h5">{product.name}</CardTitle>
@@ -38,12 +38,14 @@ const {cart, getPrice,removeItem} = useContext(Context)
                                 </CardBody>
                                 <button  onClick={()=>removeItem(product.id)}>Remover</button>
                         </Card>
-                        </Col>
+                        </Row>
                     
                     )
                 }
                 )}
 
+
+                <button onClick={()=>clearCart()}>Limpiar Carrito</button>
                 <p>Total:${getPrice()}</p>
                 
         </div>
