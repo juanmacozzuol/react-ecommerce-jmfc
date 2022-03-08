@@ -50,7 +50,7 @@ return(
 
                     <p className='lead'>{description}</p>
 
-                    {bought===0 ?<ItemCount onAdd={addItems} stock={stock} initial={0}/> :<Link to='/cart'>Ver Carrito</Link>}
+                    {bought===0 ?<ItemCount onAdd={addItems} stock={stock} initial={1}/> :<Link to='/cart'>Ver Carrito</Link>}
 
                 </CardBody>
         </Card>
