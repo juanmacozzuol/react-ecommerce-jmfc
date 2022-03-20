@@ -5,30 +5,25 @@ import { Col, Card, CardBody, CardTitle, CardImg, CardSubtitle, CardHeader} from
 import {Link} from 'react-router-dom'
 import {writeBatch,getDoc,doc,collection,addDoc,Timestamp} from 'firebase/firestore'
 import { firestoreDb } from '../../services/firebase/firebase'
-
-
-
-
-
-
+import Form from '../Form/Form'
 
 
 const Cart =()=>{
+const [contact,setContact] = useState({
+    name: '',
+    phone: '',
+    address: '',
+    comment: ''
 
+})
 const {cart, getPrice,removeItem,clearCart} = useContext(Context)
 const [orden,setOrden]=useState('')
-
 
 const confirmOrder = () =>{
    
     const objOrder={
-        buyer:{
-            name:'Juan',
-            phone:'85415415',
-            address:'una calle'
-    
-        },
-    
+
+        buyer:contact,
         items:cart,
         total:getPrice(),
         date:Timestamp.fromDate(new Date())
@@ -36,34 +31,49 @@ const confirmOrder = () =>{
 
  const batch = writeBatch(firestoreDb)
  const outOfStock = []
+ let count = 0
+
+
+
  objOrder.items.forEach(prod=>{
 
     getDoc(doc(firestoreDb,'products',prod.id)).then(response=>{
 
-            if(response.data().stock >= prod.valor)
-            {
-                batch.update(doc(firestoreDb,'products',response.id),
-                {stock:response.data().stock-prod.valor})
-            }else {
-                outOfStock.push({id:response.id,...response.data()})
+        count++
+       
+        response.data().stock >= prod.valor 
+            ? batch.update(doc(firestoreDb,'products',response.id),{stock: response.data().stock - prod.stock})
+            : outOfStock.push(prod.id)
 
+            if (count === objOrder.items.length)
+            {
+                if(outOfStock.length===0)
+                {
+                    addDoc(collection(firestoreDb,'orders'),objOrder).then(({id})=>{batch.commit()
+                        
+                        .then(()=>{
+                            clearCart()
+                            setOrden(id) 
+                            console.log(id)  
+                            setContact({
+                                name: '',
+                                phone: '',
+                                address: '',
+                                comment: ''
+                            
+                            })                     
+                        
+                        })})
+                }
             }
+
+
 
     })
 
  })
 
- if(outOfStock.length===0){
 
-    addDoc(collection(firestoreDb,'orders'),objOrder).then(({id})=>{
-
-        batch.commit().then(()=>{
-            console.log(id)
-            clearCart()
-           setOrden(id)
-        })
-    })
- }
  
 }
 
@@ -71,8 +81,11 @@ const confirmOrder = () =>{
 
 
     return(   
-        cart.length===0?<div><p>Carrito Vacío</p><Link to='/'>Go Home</Link><p> {`Su numero de orden es ${orden}`}</p></div>:
-        <div>
+        cart.length===0 && orden!==''
+        ?<div><p>Carrito Vacío</p><Link to='/'>Go Home</Link><p> {`Su numero de orden es ${orden}`}</p></div>
+        : cart.length===0 
+        ? <div><p>Carrito Vacío</p><Link to='/'>Go Home</Link></div>
+        :<div>
            
                 {cart.map( product => {
                    
@@ -102,12 +115,17 @@ const confirmOrder = () =>{
                     
                     )
                 }
+
                 )}
-
-
-                <button onClick={()=>clearCart()}>Limpiar Carrito</button>
-                <button onClick={()=>confirmOrder()}>Cargar Orden</button>
+                   <button onClick={()=>clearCart()}>Limpiar Carrito</button>
+                
                 <p>Total:${getPrice()}</p>
+                {contact.name!==''&&contact.address!==''&&contact.phone!==''&&contact.comment!==''
+                    ?<button onClick={()=>confirmOrder()}>Cargar Orden</button>
+                        :<Form setContact={setContact}/> 
+                }
+            
+               
                 
         </div>
 
