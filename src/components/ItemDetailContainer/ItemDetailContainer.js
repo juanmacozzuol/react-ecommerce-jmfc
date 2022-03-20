@@ -4,6 +4,7 @@ import{ useParams} from 'react-router-dom'
 import { Spinner } from "reactstrap";
 import {getDoc, doc} from 'firebase/firestore'
 import { firestoreDb } from "../../services/firebase/firebase";
+
 const ItemDetailContainer = () =>{
 
     const[product,setProduct]=useState()
@@ -23,10 +24,7 @@ const ItemDetailContainer = () =>{
             setLoading(false)
 
         )
-
-
     },[params.productId])   
-
 
     return(
         

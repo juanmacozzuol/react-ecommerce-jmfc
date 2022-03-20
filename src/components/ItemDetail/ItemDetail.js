@@ -5,12 +5,9 @@ import { useState,useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Context from '../../context/CartContext';
 
-
 const ItemDetail = ({name,img,stock,description,price, id}) =>{
 const [bought,setBought] = useState(0);
  const {addProducts} = useContext(Context);
-
-
 
     const addItems =(valor)=>{
         
@@ -26,12 +23,8 @@ const [bought,setBought] = useState(0);
         }
 
        if(valor!==0){
-
-         addProducts(productToAdd,valor);
-        
-        }
-
-        
+         addProducts(productToAdd,valor);    
+        }     
      }
 
 return(
@@ -58,8 +51,6 @@ return(
     </div>
 )
 
-
 }
-
 
 export default ItemDetail;

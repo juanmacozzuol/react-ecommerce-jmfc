@@ -9,8 +9,6 @@ const ItemListContainer =({title})=>{
 
     const[products,setProducts]=useState([])
     const params=useParams();
- 
- 
 
     useEffect(()=>{
         const collectionRef= params.categoryId ? 

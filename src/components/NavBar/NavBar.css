@@ -1,5 +1,4 @@
 .logo{
-
 height: 50px;
 width: 50px;
 float: left;
@@ -8,16 +7,12 @@ color:black;
 
 }
 
-
 .nav{
-
     background-color: rgb(133, 2, 2);
-    height: 80px;
-    
+    height: 80px;  
 }
 
 .link{
-
     text-decoration: none;
     color: white;
     border-radius: 10px;
@@ -27,7 +22,6 @@ color:black;
 }
 
 .selectedLink{
-
     text-decoration: none;
     color: white;
     border-radius: 10px;
@@ -40,6 +34,5 @@ color:black;
 ul li{
 display: inline;
 padding: 10px;
-
 }
 

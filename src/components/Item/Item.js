@@ -1,14 +1,10 @@
 
 import {Link} from 'react-router-dom'
-
-import { Col, Card, CardBody, CardTitle, CardText, CardImg, CardSubtitle, Button, CardHeader } from 'reactstrap';
+import { Col, Card, CardTitle, CardHeader } from 'reactstrap';
 const Item = ({name, img,id})=>{
-
 
     return(
         <div style={{display:"inline-block"}}>
-
-            
 
             <Col className='col-md-4 mb-4' style={{margin:10}} >
                 <Card className='border-warning text-start'>
@@ -25,11 +21,6 @@ const Item = ({name, img,id})=>{
     
         </div>
     )
-
-
-
-
-
 }
 
 export default Item;

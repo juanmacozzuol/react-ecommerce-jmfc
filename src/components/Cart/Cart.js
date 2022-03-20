@@ -54,7 +54,6 @@ const confirmOrder = () =>{
                         .then(()=>{
                             clearCart()
                             setOrden(id) 
-                            console.log(id)  
                             setContact({
                                 name: '',
                                 phone: '',
