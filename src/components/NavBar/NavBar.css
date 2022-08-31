@@ -1,29 +1,38 @@
 .logo{
-
 height: 50px;
 width: 50px;
 float: left;
 display :inline;
+color:black;
 
 }
 
 .nav{
-
-    background-color: red;
-    height: 80px;
-    
+    background-color: rgb(133, 2, 2);
+    height: 80px;  
 }
 
 .link{
-
     text-decoration: none;
-    color: black;
-
+    color: white;
+    border-radius: 10px;
+    background-color: rgb(68, 39, 173);
+    padding: 3px;
+    margin:10px;
 }
+
+.selectedLink{
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    background-color: rgb(43, 17, 66);
+    padding: 3px;
+    margin:10px;
+}
+
 
 ul li{
 display: inline;
 padding: 10px;
-
 }
 

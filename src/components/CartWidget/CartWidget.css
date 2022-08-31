@@ -1,0 +1,20 @@
+.cartwidget{
+
+    display: inline;
+
+}
+
+
+.cart{
+
+    height: 40px;
+    width: 40px;
+    float: right;
+    display :inline;
+    
+    background-color:  rgb(68, 39, 173);
+
+    
+   }
+
+
