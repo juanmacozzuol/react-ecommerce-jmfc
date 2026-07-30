@@ -2,7 +2,9 @@
 
 A board game e-commerce storefront: browse by category, view product detail, and add items to a cart.
 
-**🔗 Live demo:** _add the Vercel URL here once deployed_
+**🔗 Live demo:** https://react-ecommerce-jmfc.vercel.app/
+
+![The Meeple King screenshot](./screenshot.png)
 
 ## Features
 
