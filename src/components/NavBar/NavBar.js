@@ -20,26 +20,26 @@ const NavBar =() =>{
       })
       setCategories(categories)
 
+    }).catch(()=>{
+      setCategories([])
     })
 
   }, [])
 
   return(
-      <nav >
-          <div className="nav" >
-              <div >
-                <Link to='/'><GiMeepleKing className="logo" /></Link>
-                <CartWidget/>
-          
-              </div>
-              <h1>The Meeple King</h1>
+      <nav className="navbar">
+          <Link to='/' className="brand">
+            <GiMeepleKing className="logo" />
+            <span className="brand-title">The Meeple King</span>
+          </Link>
 
-              <div>
-                {categories.map(cat => <NavLink key={cat.id} to={`/category/${cat.id}`} className={({ isActive }) =>
-                  isActive ? 'selectedLink' : 'link'
-                }>{cat.description}</NavLink>)}
-              </div>
-          </div>       
+          <div className="nav-links">
+            {categories.map(cat => <NavLink key={cat.id} to={`/category/${cat.id}`} className={({ isActive }) =>
+              isActive ? 'selectedLink' : 'link'
+            }>{cat.description}</NavLink>)}
+          </div>
+
+          <CartWidget/>
       </nav>
   )
 }

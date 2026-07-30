@@ -8,10 +8,13 @@ import { firestoreDb } from "../../services/firebase/firebase";
 const ItemDetailContainer = () =>{
 
     const[product,setProduct]=useState()
+    const[error,setError]=useState(null)
     const params=useParams();
     const [loading,setLoading]=useState(true)
-   
+
     useEffect(()=>{
+        setLoading(true)
+        setError(null)
 
         const docRef=doc(firestoreDb,'products',params.productId)
 
@@ -20,19 +23,22 @@ const ItemDetailContainer = () =>{
             const product ={id:response.id,...response.data()}
             setProduct(product)
 
-        }).finally(
+        }).catch(()=>{
+            setError('Could not load this product. Please try again later.')
+        }).finally(()=>{
             setLoading(false)
-
-        )
-    },[params.productId])   
+        })
+    },[params.productId])
 
     return(
-        
+
         <div>
-        {loading ? <Spinner/>: <ItemDetail {...product}/>}
+        {loading && <Spinner/>}
+        {error && <p className="error">{error}</p>}
+        {!loading && !error && <ItemDetail {...product}/>}
         </div>
-        
-        ) 
+
+        )
 }
 
 export default ItemDetailContainer;

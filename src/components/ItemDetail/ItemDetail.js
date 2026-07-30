@@ -1,5 +1,5 @@
 
-import { Col, Card, CardBody, CardTitle, CardSubtitle,  CardHeader } from 'reactstrap';
+import { Card, CardBody, CardTitle, CardSubtitle,  CardHeader } from 'reactstrap';
 import ItemCount from '../ItemCount/ItemCount';
 import { useState,useContext } from 'react';
 import { Link } from 'react-router-dom';
@@ -10,7 +10,7 @@ const [bought,setBought] = useState(0);
  const {addProducts} = useContext(Context);
 
     const addItems =(valor)=>{
-        
+
         setBought(valor);
 
         const productToAdd = {
@@ -23,31 +23,29 @@ const [bought,setBought] = useState(0);
         }
 
        if(valor!==0){
-         addProducts(productToAdd,valor);    
-        }     
+         addProducts(productToAdd,valor);
+        }
      }
 
 return(
 
-    <div>
-        <Col className='col-md-4 mb-4' >
-            <Card className='border-warning text-start'>
-                <CardHeader className='bg-warning text-center'>
-                    <CardTitle tag="h5">{name}</CardTitle>
-                </CardHeader>
-                <div style={{height:200, overflow:'hidden', alignItems:'center'}}>
-                    <img  style={{height:200,width:170}} className='img-fluid' src={img} alt={name} />
-                </div>
-                <CardBody>
-                    <CardSubtitle className='mb-2 text-muted'>${price}</CardSubtitle>
+    <div style={{maxWidth:320, margin:'0 auto', padding:'0 1.5rem 2rem'}}>
+        <Card className='product-card text-start'>
+            <CardHeader className='product-card-header text-center'>
+                <CardTitle tag="h5">{name}</CardTitle>
+            </CardHeader>
+            <div style={{height:220, overflow:'hidden', display:'flex', alignItems:'center', justifyContent:'center'}}>
+                <img  style={{height:220,width:'auto',maxWidth:'100%'}} src={img} alt={name} />
+            </div>
+            <CardBody>
+                <CardSubtitle className='mb-2 text-muted'>${price}</CardSubtitle>
 
-                    <p className='lead'>{description}</p>
+                <p className='lead'>{description}</p>
 
-                    {bought===0 && stock!==0?<ItemCount onAdd={addItems} stock={stock} initial={1}/> :stock===0 ? <p>Sin Stock</p> : <Link to='/cart'>Ver Carrito</Link>}
+                {bought===0 && stock!==0?<ItemCount onAdd={addItems} stock={stock} initial={1}/> :stock===0 ? <p>Out of stock</p> : <Link to='/cart'>View Cart</Link>}
 
-                </CardBody>
+            </CardBody>
         </Card>
-        </Col>
     </div>
 )
 

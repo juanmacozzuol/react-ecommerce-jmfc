@@ -2,7 +2,7 @@ import {useState} from "react"
 
 const ItemCount = ({stock, initial, onAdd}) =>{
 
-    const [count, setCount]=useState(0);
+    const [count, setCount]=useState(initial);
 
     const decrement =()=>{
         if (count>initial)
@@ -18,12 +18,14 @@ const ItemCount = ({stock, initial, onAdd}) =>{
     }
 
     return(
-        <div >
-            <button  onClick={decrement}>-</button>
-            <p style={{display:"inline"}}>{count}</p>
-            <button  onClick={increment}>+</button>
+        <div>
+            <div style={{display:"flex", alignItems:"center", justifyContent:"center", gap:"0.75rem", marginBottom:"0.75rem"}}>
+                <button className='btn-outline' onClick={decrement}>-</button>
+                <p style={{display:"inline", margin:0}}>{count}</p>
+                <button className='btn-outline' onClick={increment}>+</button>
+            </div>
             <div>
-                <button onClick={()=>onAdd(count)}>Agregar al carrito</button>
+                <button className='btn-brand' onClick={()=>onAdd(count)}>Add to cart</button>
             </div>
         </div>
     )

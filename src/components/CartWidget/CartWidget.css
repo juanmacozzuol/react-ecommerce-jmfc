@@ -1,20 +1,25 @@
 .cartwidget{
-
-    display: inline;
-
+    display: inline-flex;
 }
 
-
 .cart{
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    height: auto;
+    width: auto;
+    border: none;
+    border-radius: 999px;
+    padding: 0.5rem 0.85rem;
+    background-color: var(--brand-accent);
+    color: var(--brand-dark);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
 
-    height: 40px;
-    width: 40px;
-    float: right;
-    display :inline;
-    
-    background-color:  rgb(68, 39, 173);
-
-    
-   }
-
-
+.cart:hover{
+    background-color: var(--brand-accent-dark);
+    color: white;
+}

@@ -1,25 +1,19 @@
 
 import {Link} from 'react-router-dom'
-import { Col, Card, CardTitle, CardHeader } from 'reactstrap';
+import { Card, CardTitle, CardHeader } from 'reactstrap';
 const Item = ({name, img,id})=>{
 
     return(
-        <div style={{display:"inline-block"}}>
+        <Card className='product-card text-start'>
+            <CardHeader className='product-card-header text-center'>
+                <CardTitle tag="h5">{name}</CardTitle>
+            </CardHeader>
 
-            <Col className='col-md-4 mb-4' style={{margin:10}} >
-                <Card className='border-warning text-start'>
-                    <CardHeader className='bg-warning text-center'>
-                        <CardTitle tag="h5">{name}</CardTitle>
-                    </CardHeader>
+            <div style={{height:200, overflow:'hidden', display:'flex', alignItems:'center', justifyContent:'center'}}>
+                <Link to={`/detail/${id}`}><img alt={name} style={{height:200,width:'auto',maxWidth:'100%'}} src={img}></img></Link>
+            </div>
 
-                    <div style={{height:200, overflow:'hidden', alignItems:'center'}}>
-                        <Link to={`/detail/${id}`}> <img alt={name} style={{height:200,width:170}} src={img}></img></Link>
-                    </div>
-               
-                </Card>
-            </Col>
-    
-        </div>
+        </Card>
     )
 }
 

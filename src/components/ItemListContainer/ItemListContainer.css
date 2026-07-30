@@ -1,8 +1,7 @@
 
-.itemlist{
-
-font-size: 100px;
-color:black;
-border: black 1px dotted;
-
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1.5rem 2rem;
 }

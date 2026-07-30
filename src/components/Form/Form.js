@@ -29,17 +29,17 @@ const Form = ({  setContact }) => {
     return (
 
         <div className='ContactContainer'>
-          <div>Contacto</div>
+          <div>Contact</div>
           <form className='ContactForm' onSubmit={handleContactForm}>
-            <label className='LabelContact'>Nombre:
+            <label className='LabelContact'>Name:
               <input
                 className='InputContact'
                 type='text'
                 value={name}
                 onChange={({ target }) => setName(target.value)}
               />
-            </label>  
-            <label className='LabelContact'>Telefono:
+            </label>
+            <label className='LabelContact'>Phone:
               <input
                 className='InputContact'
                 type='number'
@@ -47,7 +47,7 @@ const Form = ({  setContact }) => {
                 onChange={({ target }) => setPhone(target.value)}
               />
             </label>
-            <label className='LabelContact'>Direccion:
+            <label className='LabelContact'>Address:
               <input
                 className='InputContact'
                 type='text'
@@ -55,7 +55,7 @@ const Form = ({  setContact }) => {
                 onChange={({ target }) => setAddress(target.value)}
               />
             </label>
-            <label className='LabelContact'>Comentario: 
+            <label className='LabelContact'>Comment:
               <input
                 className='InputContact'
                 type='text'
@@ -63,7 +63,7 @@ const Form = ({  setContact }) => {
                 onChange={({ target }) => setComment(target.value)}
               />
             </label>
-            <button className='Button' type='submit'>Confirmar</button>
+            <button className='btn-brand' type='submit'>Confirm</button>
           </form>
         </div>
       )

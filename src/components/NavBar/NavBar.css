@@ -1,38 +1,60 @@
-.logo{
-height: 50px;
-width: 50px;
-float: left;
-display :inline;
-color:black;
-
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    background-color: var(--brand-dark);
+    padding: 0.75rem 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
-.nav{
-    background-color: rgb(133, 2, 2);
-    height: 80px;  
+.brand{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+
+.logo{
+    height: 28px;
+    width: 28px;
+    color: var(--brand-accent);
+}
+
+.brand-title{
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: white;
+    white-space: nowrap;
+}
+
+.nav-links{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
 }
 
 .link{
     text-decoration: none;
+    color: #cbd5e1;
+    border-radius: 999px;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.85rem;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.link:hover{
+    background-color: rgba(255,255,255,0.1);
     color: white;
-    border-radius: 10px;
-    background-color: rgb(68, 39, 173);
-    padding: 3px;
-    margin:10px;
 }
 
 .selectedLink{
     text-decoration: none;
-    color: white;
-    border-radius: 10px;
-    background-color: rgb(43, 17, 66);
-    padding: 3px;
-    margin:10px;
+    color: var(--brand-dark);
+    background-color: var(--brand-accent);
+    border-radius: 999px;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.85rem;
+    font-weight: 600;
 }
-
-
-ul li{
-display: inline;
-padding: 10px;
-}
-

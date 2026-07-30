@@ -2,11 +2,11 @@ import Item from '../Item/Item'
 
 const ItemList =({productos})=>{
     return(
-      <div>
-        {productos.map( product => {        
+      <div className='item-grid'>
+        {productos.map( product => {
           return <Item key={product.id} id={product.id} name={product.name} img={product.img}  /> })
         }
-      </div>               
+      </div>
     )
 }
 
